@@ -1,31 +1,250 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8>
-    <meta name="viewport"
-content="width=device-width,initial-scale=1.0>
-<title>マイポートフォリオ<title>
-<script src="https//
-cdn.tailwindcss.com"></script>
-</head>
-<body class=""bg-gray p-100 flex items-center justify-center min-h-screen">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | 想いを形に、美しいデザイン</title>
+    
+    <!-- Google Fonts: Zen Maru Gothic (丸ゴシック) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
 
-<div class=bg="bg-white p-10
-rounded-2xl shadow-x1 text-center max-w-md border-t-8 border-blue-500">
-<h1 class="text-3xl font-boldtext-gray-800 mb-4">
-           私のポートフォリオへようこそ！
-    </h1>
-    <p class="text-gray-600
-    leading-relaxed md-6">
-           ここに自己紹介や作品、頑張ってることなどを載せていきます。
-           これからどんどん中身を充実させていく予定です！
-    </p>
-    <div class=""bg-blue-50 py-2
-    px-4 rounded-full text-blue-600 font-semibold inline-block">
-                                                    制作中
-            　　　　</div>
-               </div>
-               
-     </body>
-     </html>
-     
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config for Custom Colors/Fonts -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Zen Maru Gothic"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            bg: '#FFF8F0',       // 非常に薄いクリーム色
+                            text: '#5D4037',     // 優しい焦げ茶色
+                            accent: '#F6AD55',   // 暖かみのあるオレンジ
+                            highlight: '#FBD38D', // 明るいイエローオレンジ
+                            card: '#FFFFFF',     // カード背景
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(246, 173, 85, 0.15)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* 背景にうっすらとした粒状感（ノイズ）を加えて、紙のような質感を出す */
+        .texture-bg {
+            background-color: #FFF8F0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+        }
+        /* ふわっと浮き上がるアニメーション */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="texture-bg text-brand-text antialiased leading-loose">
+
+    <!-- Header / Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-brand-bg/90 backdrop-blur-md border-b border-orange-100">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="font-bold text-xl tracking-wider text-brand-accent">My Portfolio</div>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-8 text-sm font-medium">
+                    <li><a href="#about" class="hover:text-brand-accent transition-colors">大切にしていること</a></li>
+                    <li><a href="#works" class="hover:text-brand-accent transition-colors">想いのお手伝い</a></li>
+                    <li><a href="#contact" class="hover:text-brand-accent transition-colors">お問い合わせ</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="md:hidden text-sm bg-brand-accent text-white px-4 py-2 rounded-full">ご相談</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 px-6 md:pt-48 md:pb-32 overflow-hidden">
+        <!-- Decoration Circles -->
+        <div class="absolute top-20 right-0 w-64 h-64 bg-brand-highlight rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float"></div>
+        <div class="absolute bottom-0 left-10 w-72 h-72 bg-pink-100 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-float" style="animation-delay: 2s;"></div>
+
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <span class="inline-block py-1 px-3 rounded-full bg-orange-100 text-orange-600 text-xs font-bold tracking-widest mb-6">
+                NEW OPEN
+            </span>
+            <h1 class="text-3xl md:text-5xl font-bold mb-8 leading-tight">
+                想いを形に、<br class="md:hidden" />美しいデザイン。
+            </h1>
+            <p class="text-lg md:text-xl opacity-80 mb-10 max-w-2xl mx-auto">
+                起業・開業、おめでとうございます。<br>
+                あなたの新しい挑戦を、Webサイト制作を通して<br class="hidden md:inline">
+                優しく、丁寧にサポートいたします。
+            </p>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-4">
+                <a href="#works" class="bg-brand-accent text-white px-8 py-3 rounded-full font-bold shadow-lg hover:bg-orange-600 transition-all hover:shadow-xl transform hover:-translate-y-0.5">
+                    想いのお手伝いを見る
+                </a>
+                <a href="#about" class="text-brand-text border border-brand-text/20 px-8 py-3 rounded-full font-medium hover:bg-white/50 transition-colors">
+                    私について
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition (About) -->
+    <section id="about" class="py-20 px-6 bg-white/50">
+        <div class="max-w-3xl mx-auto text-center">
+            <div class="text-4xl mb-4">🌱</div>
+            <h2 class="text-2xl md:text-3xl font-bold mb-8 text-brand-text">
+                Webサイトは、<br>あなたの想いを伝える「家」です。
+            </h2>
+            <div class="space-y-6 text-left md:text-center leading-loose opacity-90">
+                <p>
+                    名刺交換をしたお客様が、最初に訪れる場所。<br>
+                    それがあなたのホームページです。
+                </p>
+                <p>
+                    きちんとしたWebサイトがあるだけで、ビジネスへの信頼感はぐっと深まります。<br>
+                    「サーバー？ドメイン？」といった難しい言葉を知らなくても大丈夫です。<br>
+                    あなたの「叶えたいこと」をお話しいただくだけで、<br>
+                    最適な形をご提案いたします。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Works Section -->
+    <section id="works" class="py-20 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-brand-text inline-block relative">
+                    想いのお手伝い
+                    <span class="absolute -bottom-2 left-0 w-full h-1 bg-brand-highlight rounded-full"></span>
+                </h2>
+                <p class="mt-4 text-sm opacity-70">課題解決に寄り添ったデザイン事例</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Card A: Corporate -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-soft hover:shadow-lg transition-shadow duration-300 flex flex-col h-full group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img 
+                            src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" 
+                            alt="企業のオフィスイメージ" 
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                        >
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <div class="mb-4">
+                            <span class="text-xs font-bold bg-slate-100 text-slate-600 px-2 py-1 rounded-md">コーポレートサイト</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">株式会社〇〇 様</h3>
+                        <p class="text-sm opacity-80 mb-4 flex-1">
+                            誠実さと信頼感を重視したデザイン。創業の想いをストーリー調で掲載し、採用活動でも「会社の雰囲気が伝わる」と好評をいただきました。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card B: Salon/Shop -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-soft hover:shadow-lg transition-shadow duration-300 flex flex-col h-full group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img 
+                            src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&q=80&w=800" 
+                            alt="美容サロンのイメージ" 
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                        >
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <div class="mb-4">
+                            <span class="text-xs font-bold bg-orange-100 text-orange-600 px-2 py-1 rounded-md">店舗・サロンHP</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Beauty Salon 〇〇 様</h3>
+                        <p class="text-sm opacity-80 mb-4 flex-1">
+                            来店ハードルを下げる、温かみのある配色。スマホから簡単に予約できるボタン配置にし、Web経由の新規予約が2倍に増加しました。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card C: LP -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-soft hover:shadow-lg transition-shadow duration-300 flex flex-col h-full group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img 
+                            src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=800" 
+                            alt="おしゃれなアパレル店舗のイメージ" 
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                        >
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <div class="mb-4">
+                            <span class="text-xs font-bold bg-yellow-100 text-yellow-700 px-2 py-1 rounded-md">商品ランディングページ</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">新商品キャンペーン</h3>
+                        <p class="text-sm opacity-80 mb-4 flex-1">
+                            商品の魅力を「共感」で伝える構成。読んでいて心地よいリズムを作り、購入ボタンまでのスムーズな動線を設計しました。
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile & Contact Section -->
+    <section id="contact" class="py-20 px-6">
+        <div class="max-w-4xl mx-auto bg-white rounded-[2.5rem] p-8 md:p-16 shadow-soft relative overflow-hidden">
+            <!-- Background Decoration -->
+            <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-brand-accent to-brand-highlight"></div>
+
+            <div class="flex flex-col md:flex-row items-center md:items-start gap-10">
+                <!-- Profile Image Placeholder -->
+                <div class="flex-shrink-0">
+                    <div class="w-32 h-32 bg-orange-100 rounded-full flex items-center justify-center text-5xl border-4 border-white shadow-sm">
+                        ☺️
+                    </div>
+                </div>
+                
+                <div class="text-center md:text-left">
+                    <h3 class="text-lg font-bold text-brand-accent mb-1">Web Designer</h3>
+                    <h2 class="text-3xl font-bold mb-4 text-brand-text">山田 太郎</h2>
+                    <p class="mb-6 text-sm leading-relaxed opacity-80">
+                        「ITは苦手...」という方にこそ、寄り添った提案を心がけています。<br>
+                        ホームページ制作のご相談だけでなく、「何から始めたらいいかわからない」という段階でも、お気軽にお話しください。
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <a href="mailto:hello@example.com" class="block w-full md:inline-block md:w-auto bg-brand-text text-white text-center font-bold px-8 py-4 rounded-full hover:bg-gray-700 transition-colors">
+                            📩 お問い合わせはこちら
+                        </a>
+                        
+                        <div class="flex justify-center md:justify-start gap-6 mt-6 pt-4 border-t border-gray-100">
+                            <a href="#" class="text-gray-400 hover:text-brand-accent transition-colors flex items-center gap-2">
+                                <span class="text-xl">𝕏</span> <span class="text-xs">Twitter</span>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-brand-accent transition-colors flex items-center gap-2">
+                                <span class="text-xl">📷</span> <span class="text-xs">Instagram</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 text-center text-xs text-brand-text opacity-60">
+        <p>&copy; 2026 Taro Yamada Portfolio. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
